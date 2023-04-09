@@ -1,0 +1,16 @@
+<div class="song-list-container">
+  <ul class="song-list">
+    <li *ngFor="let song of songs" [class.active]="song === selectedSong" (click)="onSongSelect(song)">
+      {{ song.title }}
+    </li>
+  </ul>
+</div>
+<div class="song-content-container">
+  <h2>{{ selectedSong?.title }}</h2>
+  <div class="parts-container">
+    <div class="part" *ngFor="let part of selectedSong?.parts">
+      <h3>{{ part.name }}</h3>
+      <p>{{ part.text }}</p>
+    </div>
+  </div>
+</div>
