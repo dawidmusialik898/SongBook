@@ -2,25 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SongComponent } from './song/song.component';
-import { ApiModule } from 'src/song-book-service-api-client';
+import { AppComponent } from './app/app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SongBookModule } from '../song-book/song-book.module';
+import { NgMaterialModule } from '../ng-material/ng-material.module';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ApiModule,
     FormsModule,
-    BrowserAnimationsModule
+    SongBookModule,
+    NgMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
