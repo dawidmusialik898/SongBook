@@ -1,10 +1,11 @@
 <div class="song-list-container">
   <mat-selection-list hideSingleSelectionIndicator [multiple]="false">
-    <mat-list-option *ngFor="let song of songs" (click)="onSongSelect(song)">
-      {{song.number}}.{{ song.title }}
+    <mat-list-option *ngFor="let song of songs; last as last" (click)="onSongSelect(song)">
+      <span>{{song.number}}.{{ song.title }}</span>
       <mat-divider [inset]="true"></mat-divider>
     </mat-list-option>
   </mat-selection-list>
+  <mat-divider [vertical]="true" [inset]="true"></mat-divider>
 </div>
 <div class="song-content-container">
   <h2>{{ selectedSong?.title }}</h2>
