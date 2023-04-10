@@ -1,21 +1,6 @@
 .song-list-container {
-  width: 20%;
+  width: 15%;
   float: left;
-}
-
-.song-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.song-list li {
-  cursor: pointer;
-  padding: 10px;
-}
-
-.song-list li.active {
-  background-color: #eee;
 }
 
 .song-content-container {
