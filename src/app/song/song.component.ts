@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { SimpleSongDTO, SimpleSongService } from 'src/song-book-service-api-client';
 
 @Component({
@@ -6,7 +6,7 @@ import { SimpleSongDTO, SimpleSongService } from 'src/song-book-service-api-clie
   templateUrl: './song.component.html',
   styleUrls: ['./song.component.scss']
 })
-export class SongComponent {
+export class SongComponent implements OnInit {
   songs: SimpleSongDTO[] = [];
   selectedSong: SimpleSongDTO | null = null;
 
@@ -20,3 +20,5 @@ export class SongComponent {
     this.songService.apiSimpleSongGet().subscribe(s => this.songs = s);
   }
 }
+
+//tutorial 4:47
