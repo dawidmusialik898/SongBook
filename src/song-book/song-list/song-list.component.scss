@@ -29,3 +29,20 @@
   margin-left: 1%;
   margin-right: 1%;
 }
+
+mat-selection-list {
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .26);
+}
+
+.form-field {
+  width: 100%;
+}

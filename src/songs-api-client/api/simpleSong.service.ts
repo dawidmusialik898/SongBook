@@ -28,7 +28,7 @@ import { Configuration } from '../configuration';
 @Injectable()
 export class SimpleSongService {
 
-  protected basePath = 'http://192.168.0.17:8088';
+  protected basePath = 'https://localhost:8089';
   public defaultHeaders = new HttpHeaders();
   public configuration = new Configuration();
 

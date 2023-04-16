@@ -9,6 +9,7 @@ import { SimpleSongDTO, SimpleSongService } from '../../songs-api-client'
 export class SongListComponent implements OnInit {
   songs: SimpleSongDTO[] = [];
   selectedSong: SimpleSongDTO | null = null;
+  value: string = '';
 
   constructor(public songService: SimpleSongService) {
   }
@@ -17,8 +18,9 @@ export class SongListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("on init was called");
     this.songService.apiSimpleSongGet().subscribe(s => this.songs = s);
   }
 }
 
-//tutorial 4:47
+//tutorial 6:45

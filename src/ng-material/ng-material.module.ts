@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatListModule,
     MatSidenavModule,
-    MatMenuModule]
+    MatMenuModule,
+    ScrollingModule,
+    MatInputModule,
+    FormsModule]
 })
 export class NgMaterialModule { }
