@@ -1,37 +1,10 @@
-.song-list-container {
-  margin-top: 1%;
-  width: 15%;
-  float: left;
-}
-
-.song-content-container {
-  margin-top: 1%;
-  width: 60%;
-  float: left;
-  text-align: center;
-  position: relative;
-}
-
-.parts-container {
-  text-align: center;
-  display: block;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.part {
-  text-align: center;
-  margin-bottom: 20px;
-  white-space: pre-line;
-}
-
 .mat-divider.mat-divider-inset {
   margin-left: 1%;
   margin-right: 1%;
 }
 
 mat-selection-list {
-  max-height: 90vh;
+  max-height: 80vh;
   overflow: auto;
 }
 

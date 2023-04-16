@@ -1,0 +1,7 @@
+<h2>{{ song?.title }}</h2>
+<div class="parts-container">
+  <div class="part" *ngFor="let part of song?.parts">
+    <h3>{{ part.name }}</h3>
+    <p>{{ part.text }}</p>
+  </div>
+</div>

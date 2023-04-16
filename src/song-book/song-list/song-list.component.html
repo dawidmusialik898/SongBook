@@ -1,27 +1,14 @@
-<div class="song-list-container">
+<mat-form-field class="form-field">
+  <mat-label>Search song</mat-label>
+  <input matInput type="text" [(ngModel)]="value">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
 
-  <mat-form-field class="form-field">
-    <mat-label>Search song</mat-label>
-    <input matInput type="text" [(ngModel)]="value">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <mat-selection-list class="custom-scroll-bar" hideSingleSelectionIndicator [multiple]="false">
-    <mat-list-option *ngFor="let song of songs; last as last" (click)="onSongSelect(song)">
-      <span>{{song.number}}.{{ song.title }}</span>
-      <mat-divider [inset]="true"></mat-divider>
-    </mat-list-option>
-  </mat-selection-list>
-
-</div>
-<div class="song-content-container">
-  <h2>{{ selectedSong?.title }}</h2>
-  <div class="parts-container">
-    <div class="part" *ngFor="let part of selectedSong?.parts">
-      <h3>{{ part.name }}</h3>
-      <p>{{ part.text }}</p>
-    </div>
-  </div>
-</div>
+<mat-selection-list class="custom-scroll-bar" hideSingleSelectionIndicator [multiple]="false">
+  <mat-list-option *ngFor="let song of songs; last as last" (click)="onSongSelect(song)">
+    <span>{{song.number}}.{{ song.title }}</span>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-option>
+</mat-selection-list>

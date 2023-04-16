@@ -1,25 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { SimpleSongDTO, SimpleSongService } from '../../songs-api-client'
+import { Component, Output, EventEmitter, Input } from '@angular/core'
+import { SimpleSongDTO, SongItemListDTO } from '../../songs-api-client'
 
 @Component({
   selector: 'sb-song-list',
   templateUrl: './song-list.component.html',
   styleUrls: ['./song-list.component.scss']
 })
-export class SongListComponent implements OnInit {
-  songs: SimpleSongDTO[] = [];
-  selectedSong: SimpleSongDTO | null = null;
+export class SongListComponent {
+
   value: string = '';
+  @Input() songs: SongItemListDTO[] = [];
+  @Output() selectSongEvent = new EventEmitter<SongItemListDTO>();
 
-  constructor(public songService: SimpleSongService) {
-  }
-  onSongSelect(song: SimpleSongDTO) {
-    this.selectedSong = song;
-  }
 
-  ngOnInit() {
-    console.log("on init was called");
-    this.songService.apiSimpleSongGet().subscribe(s => this.songs = s);
+  onSongSelect(song: SongItemListDTO) {
+    this.selectSongEvent.emit(song);
   }
 }
 

@@ -1,0 +1,8 @@
+<div class="song-list-container">
+  <sb-song-list [songs]='songs' (selectSongEvent)="selectSong($event)"></sb-song-list>
+</div>
+
+
+<div class=" song-content-container">
+  <sb-simple-song-content [song]='selectedSong'></sb-simple-song-content>
+</div>
