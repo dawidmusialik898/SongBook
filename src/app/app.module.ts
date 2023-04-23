@@ -9,12 +9,14 @@ import { SongBookModule } from '../song-book/song-book.module';
 import { NgMaterialModule } from '../ng-material/ng-material.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
