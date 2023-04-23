@@ -5,9 +5,21 @@ import { SongBookComponent } from 'src/song-book/song-book/song-book.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'songs', component: SongBookComponent },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: '',
+    component: HomepageComponent,
+    title: 'Homepage',
+  },
+  {
+    path: 'songs',
+    component: SongBookComponent,
+    title: 'SongBook',
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+    title: 'Page Not Found',
+  }
 ];
 
 @NgModule({
