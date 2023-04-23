@@ -18,4 +18,5 @@ export class SongListComponent {
   }
 }
 
-//tutorial 6:45
+//tutorial 9:35
+//now need to do some coding

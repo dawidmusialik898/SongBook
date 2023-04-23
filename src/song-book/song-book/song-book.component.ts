@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SkipSelf } from '@angular/core';
 import { SimpleSongService } from 'src/songs-api-client';
 import { SimpleSongDTO, SongItemListDTO } from 'src/songs-api-client/model/models';
 
@@ -12,7 +12,7 @@ export class SongBookComponent implements OnInit {
   selectedSong!: SimpleSongDTO;
 
 
-  constructor(public songService: SimpleSongService) {
+  constructor(@SkipSelf() public songService: SimpleSongService) {
   }
 
   ngOnInit() {
