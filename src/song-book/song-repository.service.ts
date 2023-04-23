@@ -14,8 +14,8 @@ export class SongRepositoryService implements OnInit, OnDestroy {
   private structuredSongsSub?: Subscription;
 
   constructor(
-    @SkipSelf() private readonly simpleSongService: SimpleSongService,
-    @SkipSelf() private readonly structuredSongService: StructuredSongService) { }
+    private readonly simpleSongService: SimpleSongService,
+    private readonly structuredSongService: StructuredSongService) { }
 
   ngOnInit(): void {
     this.simpleSongsSub = this.simpleSongService.apiSimpleSongGet().subscribe(s => this.simpleSongs = s);
