@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core'
 import { SongItemListDTO } from '../../songs-api-client'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'sb-song-list',
@@ -9,7 +10,7 @@ import { SongItemListDTO } from '../../songs-api-client'
 export class SongListComponent {
 
   value: string = '';
-  @Input() songs: SongItemListDTO[] = [];
+  @Input() songs?: Observable<SongItemListDTO[]>;
   @Output() selectSongEvent = new EventEmitter<SongItemListDTO>();
 
 

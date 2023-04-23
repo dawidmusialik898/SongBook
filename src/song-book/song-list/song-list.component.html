@@ -7,7 +7,7 @@
 </mat-form-field>
 
 <mat-selection-list class="custom-scroll-bar" hideSingleSelectionIndicator [multiple]="false">
-  <mat-list-option *ngFor="let song of songs | searchSong:value ; last as last" (click)="onSongSelect(song)">
+  <mat-list-option *ngFor="let song of songs |async | searchSong :value ; last as last" (click)="onSongSelect(song)">
     <span>{{song.number}}.{{ song.title }}</span>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list-option>

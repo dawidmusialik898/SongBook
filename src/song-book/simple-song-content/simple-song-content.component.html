@@ -1,6 +1,6 @@
-<h2>{{ song?.title }}</h2>
+<h2>{{ (song|async)?.title }}</h2>
 <div class="parts-container">
-  <div class="part" *ngFor="let part of song?.parts">
+  <div class="part" *ngFor="let part of (song|async)?.parts">
     <h3>{{ part.name }}</h3>
     <p>{{ part.text }}</p>
   </div>

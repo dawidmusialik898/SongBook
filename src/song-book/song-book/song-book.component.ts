@@ -1,6 +1,8 @@
 import { Component, OnInit, SkipSelf } from '@angular/core';
 import { SimpleSongDTO, SongItemListDTO } from 'src/songs-api-client/model/models';
 import { SongRepositoryService } from '../song-repository.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sb-song-book',
@@ -8,8 +10,8 @@ import { SongRepositoryService } from '../song-repository.service';
   styleUrls: ['./song-book.component.scss']
 })
 export class SongBookComponent implements OnInit {
-  songs: SimpleSongDTO[] = []
-  selectedSong!: SimpleSongDTO
+  songs: Observable<SimpleSongDTO[]> = new Observable<SimpleSongDTO[]>()
+  selectedSong?: Observable<SimpleSongDTO>
 
 
   constructor(
@@ -21,6 +23,8 @@ export class SongBookComponent implements OnInit {
   }
 
   selectSong(selectedSong: SongItemListDTO) {
-    this.selectedSong = this.songs.filter(s => s.id === selectedSong.id)[0]
+    if (this.songs !== undefined) {
+      this.selectedSong = this.songs.pipe(map(songs => songs.filter(s => s.id === selectedSong.id)[0]))
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SimpleSongDTO } from 'src/songs-api-client';
 
 @Component({
@@ -7,6 +8,5 @@ import { SimpleSongDTO } from 'src/songs-api-client';
   styleUrls: ['./simple-song-content.component.scss']
 })
 export class SimpleSongContentComponent {
-  @Input() song?: SimpleSongDTO;
-
+  @Input() song?: Observable<SimpleSongDTO>
 }
