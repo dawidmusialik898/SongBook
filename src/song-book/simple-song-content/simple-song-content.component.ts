@@ -7,6 +7,6 @@ import { SimpleSongDTO } from 'src/songs-api-client';
   styleUrls: ['./simple-song-content.component.scss']
 })
 export class SimpleSongContentComponent {
-  @Input() song!: SimpleSongDTO;
+  @Input() song?: SimpleSongDTO;
 
 }

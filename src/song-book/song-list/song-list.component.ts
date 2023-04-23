@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core'
-import { SimpleSongDTO, SongItemListDTO } from '../../songs-api-client'
+import { SongItemListDTO } from '../../songs-api-client'
 
 @Component({
   selector: 'sb-song-list',

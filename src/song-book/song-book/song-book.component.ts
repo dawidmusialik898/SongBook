@@ -1,6 +1,6 @@
 import { Component, OnInit, SkipSelf } from '@angular/core';
-import { SimpleSongService } from 'src/songs-api-client';
 import { SimpleSongDTO, SongItemListDTO } from 'src/songs-api-client/model/models';
+import { SongRepositoryService } from '../song-repository.service';
 
 @Component({
   selector: 'sb-song-book',
@@ -8,18 +8,19 @@ import { SimpleSongDTO, SongItemListDTO } from 'src/songs-api-client/model/model
   styleUrls: ['./song-book.component.scss']
 })
 export class SongBookComponent implements OnInit {
-  songs: SimpleSongDTO[] = [];
-  selectedSong!: SimpleSongDTO;
+  songs: SimpleSongDTO[] = []
+  selectedSong!: SimpleSongDTO
 
 
-  constructor(@SkipSelf() public songService: SimpleSongService) {
+  constructor(
+    @SkipSelf() private songRepositoryService: SongRepositoryService) {
   }
 
   ngOnInit() {
-    this.songService.apiSimpleSongGet().subscribe(s => this.songs = s);
+    this.songs = this.songRepositoryService.getSimpleSongs();
   }
 
   selectSong(selectedSong: SongItemListDTO) {
-    this.selectedSong = this.songs.filter(s => s.id === selectedSong.id)[0];
+    this.selectedSong = this.songs.filter(s => s.id === selectedSong.id)[0]
   }
 }
