@@ -17,7 +17,7 @@ export class SongBookComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.songs = this.songRepositoryService.getSimpleSongs();
+    this.songs = this.songRepositoryService.getSimpleSongs()
   }
 
   selectSong(selectedSong: SongItemListDTO) {

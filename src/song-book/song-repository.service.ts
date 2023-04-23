@@ -5,30 +5,28 @@ import { SimpleSongDTO, SimpleSongService, StructuredSongDTO, StructuredSongServ
 @Injectable({
   providedIn: 'root'
 })
-export class SongRepositoryService implements OnInit, OnDestroy {
+export class SongRepositoryService implements OnDestroy {
 
-  private simpleSongs: SimpleSongDTO[] = [];
-  private structuredSongs: StructuredSongDTO[] = [];
+  private simpleSongs: SimpleSongDTO[] = []
+  private structuredSongs: StructuredSongDTO[] = []
 
-  private simpleSongsSub?: Subscription;
-  private structuredSongsSub?: Subscription;
+  private simpleSongsSub?: Subscription
+  private structuredSongsSub?: Subscription
 
   constructor(
     private readonly simpleSongService: SimpleSongService,
-    private readonly structuredSongService: StructuredSongService) { }
-
-  ngOnInit(): void {
-    this.simpleSongsSub = this.simpleSongService.apiSimpleSongGet().subscribe(s => this.simpleSongs = s);
-    this.structuredSongsSub = this.structuredSongService.apiStructuredSongGet().subscribe(s => this.structuredSongs = s);
+    private readonly structuredSongService: StructuredSongService) {
+    this.simpleSongsSub = this.simpleSongService.apiSimpleSongGet().subscribe(s => this.simpleSongs = s)
+    this.structuredSongsSub = this.structuredSongService.apiStructuredSongGet().subscribe(s => this.structuredSongs = s)
   }
 
   ngOnDestroy(): void {
-    this.simpleSongsSub?.unsubscribe();
-    this.structuredSongsSub?.unsubscribe();
+    this.simpleSongsSub?.unsubscribe()
+    this.structuredSongsSub?.unsubscribe()
   }
 
   public getSimpleSongs(): SimpleSongDTO[] {
-    return this.simpleSongs;
+    return this.simpleSongs
   }
 
   public getStructuredSongs(): StructuredSongDTO[] {
