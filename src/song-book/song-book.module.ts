@@ -6,6 +6,7 @@ import { NgMaterialModule } from 'src/ng-material/ng-material.module';
 import { SimpleSongContentComponent } from './simple-song-content/simple-song-content.component';
 import { SongBookComponent } from './song-book/song-book.component';
 import { SearchSongPipe } from './search-song.pipe';
+import { AppRoutingModule } from '../app/app-routing.module';
 
 
 
@@ -20,6 +21,7 @@ import { SearchSongPipe } from './search-song.pipe';
     CommonModule,
     ApiModule,
     NgMaterialModule,
+    AppRoutingModule
   ]
 })
 export class SongBookModule { }

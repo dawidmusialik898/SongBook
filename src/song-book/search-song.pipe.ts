@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SimpleSongDTO, SongItemListDTO } from 'src/songs-api-client';
+import { SongItemListDTO } from 'src/songs-api-client';
 
 @Pipe({
   name: 'searchSong'

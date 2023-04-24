@@ -10,3 +10,10 @@
   margin-bottom: 20px;
   white-space: pre-line;
 }
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
