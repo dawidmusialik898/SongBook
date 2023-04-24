@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { SimpleSongDTO, SimpleSongService, StructuredSongDTO, StructuredSongService } from 'src/songs-api-client';
 
 @Injectable({
@@ -25,4 +25,8 @@ export class SongRepositoryService {
     return this.structuredSongs;
   }
 
+  public updateSimpleSongs(): Observable<SimpleSongDTO[]> {
+    this.simpleSongs = this.simpleSongService.apiSimpleSongGet()
+    return this.simpleSongs
+  }
 }

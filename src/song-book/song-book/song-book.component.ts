@@ -27,4 +27,7 @@ export class SongBookComponent implements OnInit {
       this.selectedSong = this.songs.pipe(map(songs => songs.filter(s => s.id === selectedSong.id)[0]))
     }
   }
+  updateSongs() {
+    this.songs = this.songRepositoryService.updateSimpleSongs()
+  }
 }

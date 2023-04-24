@@ -9,13 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class SongListComponent {
 
-  value: string = '';
-  @Input() songs?: Observable<SongItemListDTO[]>;
-  @Output() selectSongEvent = new EventEmitter<SongItemListDTO>();
-
+  value: string = ''
+  @Input() songs?: Observable<SongItemListDTO[]>
+  @Output() selectSongEvent = new EventEmitter<SongItemListDTO>()
+  @Output() updateSongsEvent = new EventEmitter()
 
   onSongSelect(song: SongItemListDTO) {
-    this.selectSongEvent.emit(song);
+    this.selectSongEvent.emit(song)
+  }
+
+  onSongsUpdate() {
+    this.updateSongsEvent.emit()
   }
 }
 
