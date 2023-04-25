@@ -1,7 +1,7 @@
 <mat-form-field class="form-field">
   <mat-label>Search song</mat-label>
-  <input matInput type="text" [(ngModel)]="value">
-  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <input matInput type="text" [(ngModel)]="searchValue">
+  <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>
@@ -10,8 +10,7 @@
 </button>
 
 <mat-selection-list class="custom-scroll-bar" hideSingleSelectionIndicator [multiple]="false">
-  <mat-list-option *ngFor="let song of songs | async | searchSong :value ; last as last" (click)="onSongSelect(song)"
-    [routerLink]="song.id">
+  <mat-list-option *ngFor="let song of songs$ | async | searchSong :searchValue ; last as last" [routerLink]="song.id">
     <span>{{song.number}}.{{ song.title }}</span>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list-option>

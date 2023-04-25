@@ -1,25 +1,27 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core'
-import { SongItemListDTO } from '../../songs-api-client'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
+import { SimpleSongDTO } from '../../songs-api-client'
 import { Observable } from 'rxjs';
+import { SongRepositoryService } from '../song-repository.service';
 
 @Component({
   selector: 'sb-song-list',
   templateUrl: './song-list.component.html',
-  styleUrls: ['./song-list.component.scss']
+  styleUrls: ['./song-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SongListComponent {
+export class SongListComponent implements OnInit {
 
-  value: string = ''
-  @Input() songs?: Observable<SongItemListDTO[]>
-  @Output() selectSongEvent = new EventEmitter<SongItemListDTO>()
-  @Output() updateSongsEvent = new EventEmitter()
+  searchValue: string = ''
+  songs$?: Observable<SimpleSongDTO[]>
 
-  onSongSelect(song: SongItemListDTO) {
-    this.selectSongEvent.emit(song)
+  constructor(private repository: SongRepositoryService) { }
+
+  ngOnInit(): void {
+    this.songs$ = this.repository.getSimpleSongs()
   }
 
   onSongsUpdate() {
-    this.updateSongsEvent.emit()
+    this.repository.updateSimpleSongs()
   }
 }
 
