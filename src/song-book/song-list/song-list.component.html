@@ -10,7 +10,8 @@
 </button>
 
 <mat-selection-list class="custom-scroll-bar" hideSingleSelectionIndicator [multiple]="false">
-  <mat-list-option *ngFor="let song of songs |async | searchSong :value ; last as last" (click)="onSongSelect(song)">
+  <mat-list-option *ngFor="let song of songs | async | searchSong :value ; last as last" (click)="onSongSelect(song)"
+    [routerLink]="song.id">
     <span>{{song.number}}.{{ song.title }}</span>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list-option>

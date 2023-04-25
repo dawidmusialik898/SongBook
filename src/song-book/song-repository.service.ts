@@ -21,6 +21,13 @@ export class SongRepositoryService {
     return this.simpleSongs
   }
 
+  public getSimpleSong(id: string | null): Observable<SimpleSongDTO> | undefined {
+    if (id === null) {
+      return undefined
+    }
+    return this.simpleSongs.pipe(map(s => s.filter(s => s.id === id)[0]))
+  }
+
   public getStructuredSongs(): Observable<StructuredSongDTO[]> {
     return this.structuredSongs;
   }

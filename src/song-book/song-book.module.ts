@@ -7,6 +7,7 @@ import { SimpleSongContentComponent } from './simple-song-content/simple-song-co
 import { SongBookComponent } from './song-book/song-book.component';
 import { SearchSongPipe } from './search-song.pipe';
 import { AppRoutingModule } from '../app/app-routing.module';
+import { StructuredSongContentComponent } from './structured-song-content/structured-song-content.component';
 
 
 
@@ -15,7 +16,8 @@ import { AppRoutingModule } from '../app/app-routing.module';
     SongListComponent,
     SimpleSongContentComponent,
     SongBookComponent,
-    SearchSongPipe
+    SearchSongPipe,
+    StructuredSongContentComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,9 @@
 <div class="title">
-  <h2>{{ (song|async)?.title }}</h2>
-  <button mat-icon-button routerLink="" *ngIf="song"><mat-icon>edit</mat-icon></button>
+  <h2>{{ (song$|async)?.title }}</h2>
+  <button mat-icon-button routerLink="edit" *ngIf="song$"><mat-icon>edit</mat-icon></button>
 </div>
 <div class="parts-container">
-  <div class="part" *ngFor="let part of (song|async)?.parts">
+  <div class="part" *ngFor="let part of (song$|async)?.parts">
     <h3>{{ part.name }}</h3>
     <p>{{ part.text }}</p>
   </div>
