@@ -8,7 +8,8 @@ import { SongBookComponent } from './song-book/song-book.component';
 import { SearchSongPipe } from './search-song.pipe';
 import { AppRoutingModule } from '../app/app-routing.module';
 import { StructuredSongContentComponent } from './structured-song-content/structured-song-content.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { StructuredSongContentComponent } from './structured-song-content/struct
     CommonModule,
     ApiModule,
     NgMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    DragDropModule,
   ]
 })
 export class SongBookModule { }

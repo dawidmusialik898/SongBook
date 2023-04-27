@@ -1,0 +1,14 @@
+.form-field {
+  display: block;
+  margin-bottom: 16px;
+  margin-left: 16px;
+}
+
+.dragging {
+  background-color: #d64495;
+  opacity: 80%;
+}
+
+.dragging+li {
+  border-top: 2px solid #ccc;
+}
