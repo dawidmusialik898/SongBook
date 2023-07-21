@@ -18,8 +18,4 @@ export class SongBookComponent implements OnInit {
   ngOnInit() {
     this.songs$ = this.songRepositoryService.getSimpleSongs()
   }
-
-  updateSongs() {
-    this.songs$ = this.songRepositoryService.updateSimpleSongs()
-  }
 }

@@ -39,7 +39,7 @@ export class SongRepositoryService {
     return this.structuredSongs$;
   }
 
-  public updateSimpleSongs(): Observable<SimpleSongDTO[]> {
+  public fetchSimpleSongs(): Observable<SimpleSongDTO[]> {
     this.simpleSongs$ = this.simpleSongService.apiSimpleSongGet()
     return this.simpleSongs$
   }
