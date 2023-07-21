@@ -20,7 +20,7 @@ export class SongListComponent implements OnInit {
     this.songs$ = this.repository.getSimpleSongs()
   }
 
-  onSongsUpdate() {
+  onSongsRefresh() {
     this.songs$ = this.repository.fetchSimpleSongs()
   }
 }
