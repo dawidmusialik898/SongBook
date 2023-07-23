@@ -46,9 +46,7 @@ export class StructuredSongContentComponent implements OnInit, OnDestroy {
     this.songSub?.unsubscribe()
   }
   ngOnInit(): void {
-    this.route.params.pipe(switchMap(params => {
-      return this.repository.getStructuredSong(params['id']) as Observable<any>
-    })).subscribe(this.songObserver)
+    this.songSub = this.repository.getSelectedStructuredSong().subscribe(this.songObserver)
   }
 
   private songInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { SimpleSongDTO } from '../../songs-api-client'
 import { Observable } from 'rxjs';
 import { SongRepositoryService } from '../song-repository.service';
@@ -7,7 +7,6 @@ import { SongRepositoryService } from '../song-repository.service';
   selector: 'sb-song-list',
   templateUrl: './song-list.component.html',
   styleUrls: ['./song-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SongListComponent implements OnInit {
 
@@ -21,7 +20,7 @@ export class SongListComponent implements OnInit {
   }
 
   onSongsRefresh() {
-    this.songs$ = this.repository.fetchSimpleSongs()
+    this.repository.fetchSimpleSongs()
   }
 }
 
