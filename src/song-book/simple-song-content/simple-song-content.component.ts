@@ -26,8 +26,6 @@ export class SimpleSongContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.paramMapSub !== undefined) {
-      this.paramMapSub.unsubscribe()
-    }
+    this.paramMapSub?.unsubscribe()
   }
 }
