@@ -20,14 +20,29 @@
     <input matInput placeholder="ex. Hillsong" formControlName="author">
   </mat-form-field>
 
-  <mat-list role="list" cdkDropList (cdkDropListDropped)="drop($event)">
-    <mat-list-item role="listitem" *ngFor="let item of listItems" cdkDrag (cdkDragStarted)="dragStarted($event)"
-      (cdkDragEnded)="dragEnded($event)">
-      {{ item }}
-      <button (click)="copyItem(item)">Copy</button>
-      <button (click)="deleteItem(item)">Delete</button>
-    </mat-list-item>
-  </mat-list>
+  <div formArrayName="parts">
+    <p>Song Parts:</p>
+    <mat-list role="list" cdkDropList (cdkDropListDropped)="drop($event)">
+      <mat-form-field role="listitem" *ngFor="let part of getPartsFormArray().controls; let partIndex=index" cdkDrag
+        (cdkDragStarted)="dragStarted($event)" (cdkDragEnded)="dragEnded($event)" class="form-field">
+        <div [formGroupName]="partIndex">
+          <input matInput type="text" formControlName="name">
+          <!-- <button (click)="copyPart(part)">Copy</button> -->
+          <button (click)="removePart(partIndex)">Delete Part</button>
+          <div formArrayName="slides">
+            <div *ngFor="let slide of getSlidesFormArray(partIndex).controls; let slideIndex= index">
+              <div [formGroupName]="slideIndex">
+                <input matInput type="text" formControlName="text">
+                <button (click)="removeSlide(partIndex, slideIndex)">Delete Slide</button>
+              </div>
+            </div>
+          </div>
+          <button (click)="addSlide(partIndex)">Add slide</button>
+        </div>
+      </mat-form-field>
+      <button>(click)="addPart()">Add part</button>
+    </mat-list>
+  </div>
 
   <button type="submit">Submit</button>
   <button (click)="undo()">Undo</button>
